@@ -9,6 +9,7 @@ But their are still some essential features missing that you have to implement.
 ### Stories
 1. Right now you are matched with a random person, make sure you can put in some preferences about age, sex and personality in a new screen.
 2. We can match with other users, but we can't message them yet. Implement some functionality to send messages to users we matched with. They don't have to reply back.
+3. Add functionality to block users after we matched with them.
 
 ## How does it work?
 ### Application

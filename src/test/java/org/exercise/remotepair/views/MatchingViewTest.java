@@ -43,7 +43,7 @@ class MatchingViewTest {
 
     @Test
     void outputsUserInfo() {
-        when(ioFacade.inputMenu(3)).thenReturn(3);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(3);
 
         Class<? extends View> actual = matchingView.run();
 
@@ -52,7 +52,7 @@ class MatchingViewTest {
 
     @Test
     void outputsRightText() {
-        when(ioFacade.inputMenu(3)).thenReturn(3);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(3);
 
         Class<? extends View> actual = matchingView.run();
 
@@ -61,7 +61,7 @@ class MatchingViewTest {
 
     @Test
     void pressOne_One_Three_likesTwoUsers() {
-        when(ioFacade.inputMenu(3)).thenReturn(1, 1, 3);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(1, 1, 3);
 
         matchingView.run();
 
@@ -71,7 +71,7 @@ class MatchingViewTest {
 
     @Test
     void pressOne_Two_Three_likesFirsUser() {
-        when(ioFacade.inputMenu(3)).thenReturn(1, 2, 3);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(1, 2, 3);
 
         matchingView.run();
 
@@ -80,7 +80,7 @@ class MatchingViewTest {
 
     @Test
     void pressTwo_One_Three_likesSecondUser() {
-        when(ioFacade.inputMenu(3)).thenReturn(2, 1, 3);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(2, 1, 3);
 
         matchingView.run();
 
@@ -89,7 +89,7 @@ class MatchingViewTest {
 
     @Test
     void pressThree_returnsMainView() {
-        when(ioFacade.inputMenu(3)).thenReturn(3);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(3);
 
         Class<? extends View> actual = matchingView.run();
 

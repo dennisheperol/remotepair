@@ -1,8 +1,8 @@
 package org.exercise.remotepair.views;
 
 import com.google.inject.Inject;
-import org.exercise.remotepair.matching.MatchingService;
 import org.exercise.remotepair.core.io.IOFacade;
+import org.exercise.remotepair.matching.MatchingService;
 import org.exercise.remotepair.profile.ProfileService;
 import org.exercise.remotepair.user.User;
 
@@ -28,7 +28,7 @@ public class MatchingView implements View {
             ioFacade.output(user.getInfo());
             ioFacade.output("1. ♥ Like ♥\n2. Dislike\n3. Back");
 
-            choice = ioFacade.inputMenu(3);
+            choice = ioFacade.inputMenuNumber(3);
             if (choice == 1) {
                 profileService.like(user);
             }

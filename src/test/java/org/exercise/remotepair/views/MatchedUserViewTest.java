@@ -17,10 +17,10 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ProfileViewTest {
+class MatchedUserViewTest {
 
     @InjectMocks
-    private ProfileView profileView;
+    private MatchedUserView matchedUserView;
 
     @Mock
     private IOFacade ioFacade;
@@ -40,18 +40,18 @@ class ProfileViewTest {
 
     @Test
     void pressingOne_returnsMainView() {
-        when(ioFacade.inputMenu(3)).thenReturn(1);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(1);
 
-        Class<? extends View> actual = profileView.run();
+        Class<? extends View> actual = matchedUserView.run();
 
         assertThat(actual).isEqualTo(MainView.class);
     }
 
     @Test
     void outputsRightText() {
-        when(ioFacade.inputMenu(3)).thenReturn(1);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(1);
 
-        profileView.run();
+        matchedUserView.run();
 
         verify(ioFacade).output("You liked following users, press their number for more info\nPress 1 to exit");
         verify(ioFacade).output(String.format("2. %s %s", aUser.getName(), aUser.getSurName()));
@@ -60,18 +60,18 @@ class ProfileViewTest {
 
     @Test
     void pressingTwo_One_outputsRightText() {
-        when(ioFacade.inputMenu(3)).thenReturn(2, 1);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(2, 1);
 
-        profileView.run();
+        matchedUserView.run();
 
         verify(ioFacade).output(aUser.getInfo());
     }
 
     @Test
     void pressingThree_One_outputsRightText() {
-        when(ioFacade.inputMenu(3)).thenReturn(3, 1);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(3, 1);
 
-        profileView.run();
+        matchedUserView.run();
 
         verify(ioFacade).output(anotherUser.getInfo());
     }

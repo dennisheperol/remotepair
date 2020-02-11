@@ -22,7 +22,7 @@ public class IOFacade {
         return scanner.next();
     }
 
-    public int inputMenu(int max) {
+    public int inputMenuNumber(int max) {
         while (true) {
             try {
                 int input = scanner.nextInt();

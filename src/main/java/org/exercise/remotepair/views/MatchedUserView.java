@@ -8,13 +8,13 @@ import org.exercise.remotepair.user.User;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class ProfileView implements View {
+public class MatchedUserView implements View {
 
     private final IOFacade ioFacade;
     private final ProfileService profileService;
 
     @Inject
-    public ProfileView(IOFacade ioFacade, ProfileService profileService) {
+    public MatchedUserView(IOFacade ioFacade, ProfileService profileService) {
         this.ioFacade = ioFacade;
         this.profileService = profileService;
     }
@@ -29,7 +29,7 @@ public class ProfileView implements View {
 
         int choice;
         do {
-            choice = ioFacade.inputMenu(likedUsers.size() + 1);
+            choice = ioFacade.inputMenuNumber(likedUsers.size() + 1);
             if(choice >= 2) {
                 ioFacade.output(likedUsers.get(choice - 2).getInfo());
             }

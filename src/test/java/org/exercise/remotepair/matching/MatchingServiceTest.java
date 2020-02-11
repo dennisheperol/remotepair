@@ -1,7 +1,6 @@
-package org.exercise.remotepair;
+package org.exercise.remotepair.matching;
 
 import org.exercise.remotepair.core.RandomFacade;
-import org.exercise.remotepair.matching.MatchingService;
 import org.exercise.remotepair.user.User;
 import org.exercise.remotepair.user.UserInfoRepository;
 import org.junit.jupiter.api.BeforeEach;

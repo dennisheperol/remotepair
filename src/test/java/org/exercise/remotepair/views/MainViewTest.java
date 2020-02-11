@@ -22,16 +22,16 @@ class MainViewTest {
 
     @Test
     void outputs_expectedText() {
-        when(ioFacade.inputMenu(3)).thenReturn(3);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(3);
 
         mainView.run();
 
-        Mockito.verify(ioFacade).output("===== Welcome to Lovefinderrz =====\n      Choose an option below       \n===== and find your true love =====\n\n1. Match with other users\n2. Profile\n3. Exit");
+        Mockito.verify(ioFacade).output("===== Welcome to Lovefinderrz =====\n      Choose an option below       \n===== and find your true love =====\n\n1. Match with other users\n2. Matched users\n3. Exit");
     }
 
     @Test
     void one_returnsMatchingView() {
-        when(ioFacade.inputMenu(3)).thenReturn(1);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(1);
 
         Class<? extends View> actual = mainView.run();
 
@@ -40,16 +40,16 @@ class MainViewTest {
 
     @Test
     void two_returnsProfileView() {
-        when(ioFacade.inputMenu(3)).thenReturn(2);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(2);
 
         Class<? extends View> actual = mainView.run();
 
-        assertThat(actual).isEqualTo(ProfileView.class);
+        assertThat(actual).isEqualTo(MatchedUserView.class);
     }
 
     @Test
     void three_returnsNull() {
-        when(ioFacade.inputMenu(3)).thenReturn(3);
+        when(ioFacade.inputMenuNumber(3)).thenReturn(3);
 
         Class<? extends View> actual = mainView.run();
 
